@@ -1,40 +1,43 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 public class DictionaryManagement {
-    public int cnt = 0;
+    public static int cnt = 0;
 
-    public Word[] words = new Word[100000];
+    public static Word[] words = new Word[100000];
 
-    public void insertFromCommandline(Word newWord) {
+    public static void insertFromCommandline(Word newWord) {
         words[cnt] = newWord;
         cnt++;
     }
 
-    public String showAllWords() {
-        String res = "No | English              | Vietnamese" + '\n';
-        for (int i = 0; i < cnt; i++) {
-            res += Integer.toString(i + 1) + "  " + words[i].showWord() + '\n';
+    public void showAllWords() {
+        String res = "No  | English            | Vietnamese" + '\n';
+        System.out.println(res);
+        for(int i=0;i<cnt;i++){
+            System.out.print((i + 1) + "   ");
+            words[i].print();
         }
-        return res;
     }
 
     public static void main(String[] args) {
-        Word word1 = new Word();
-        word1.setWord_target("Hello");
-        word1.setWord_explain("Xin chao");
-
-        Word word2 = new Word();
-        word2.setWord_target("Bye");
-        word2.setWord_explain("Tam biet");
-
-        Word word3 = new Word();
-        word3.setWord_target("Book");
-        word3.setWord_explain("Quyen sach");
-
+        ArrayList<Word> dict= new ArrayList<Word>();
+        Scanner scanner= new Scanner(System.in);
+        System.out.print("Enter number of words: ");
+        int t= scanner.nextInt();
+        for(int i=0;i<t;i++){
+            Word word= new Word();
+            System.out.print("Enter English word: ");
+            word.setWord_target(scanner.next());
+            System.out.print("Enter Vietnamese explanation: ");
+            word.setWord_explain(scanner.next());
+            dict.add(word);
+        }
         DictionaryManagement dm = new DictionaryManagement();
-        dm.insertFromCommandline(word1);
-        dm.insertFromCommandline(word2);
-        dm.insertFromCommandline(word3);
+        for(int i=0;i<t;i++){
+            dm.insertFromCommandline(dict.get(i));
+        }
 
-        String str = (String) dm.showAllWords();
-        System.out.println(str);
+        dm.showAllWords();
+
     }
 }
