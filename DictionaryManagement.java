@@ -23,13 +23,13 @@ public class DictionaryManagement {
         ArrayList<Word> dict= new ArrayList<Word>();
         Scanner scanner= new Scanner(System.in);
         System.out.print("Enter number of words: ");
-        int t= scanner.nextInt();
+        int t= Integer.parseInt(scanner.nextLine().trim());
         for(int i=0;i<t;i++){
             Word word= new Word();
             System.out.print("Enter English word: ");
-            word.setWord_target(scanner.next());
+            word.setWord_target(scanner.nextLine());
             System.out.print("Enter Vietnamese explanation: ");
-            word.setWord_explain(scanner.next());
+            word.setWord_explain(scanner.nextLine());
             dict.add(word);
         }
         DictionaryManagement dm = new DictionaryManagement();
