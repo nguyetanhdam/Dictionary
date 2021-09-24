@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Word {
     private String word_target;
     private String word_explain;
@@ -39,3 +37,5 @@ public class Word {
         System.out.printf("| %-18s | %s\n", word_target, word_explain);
     }
 }
+
+// DONE

@@ -1,43 +1,32 @@
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.Scanner;
+
 public class DictionaryManagement {
-    public static int cnt = 0;
+    public static Scanner scanner = new Scanner(System.in);
 
-    public static Word[] words = new Word[100000];
+    private static final String DICT_FILE_NAME = "dictionaries.txt";
 
-    public static void insertFromCommandline(Word newWord) {
-        words[cnt] = newWord;
-        cnt++;
-    }
+    public static ArrayList<Word> WordList = new ArrayList<>();
 
-    public void showAllWords() {
-        String res = "No  | English            | Vietnamese" + '\n';
-        System.out.println(res);
-        for(int i=0;i<cnt;i++){
-            System.out.print((i + 1) + "   ");
-            words[i].print();
-        }
-    }
-
-    public static void main(String[] args) {
-        ArrayList<Word> dict= new ArrayList<Word>();
-        Scanner scanner= new Scanner(System.in);
+    public void insertFromCommandline() {
         System.out.print("Enter number of words: ");
-        int t= Integer.parseInt(scanner.nextLine().trim());
-        for(int i=0;i<t;i++){
-            Word word= new Word();
+        int word_cnt = Integer.parseInt(scanner.nextLine().trim());
+        for(int i = 0; i < word_cnt; i++) {
+            Word word = new Word();
             System.out.print("Enter English word: ");
             word.setWord_target(scanner.nextLine());
             System.out.print("Enter Vietnamese explanation: ");
             word.setWord_explain(scanner.nextLine());
-            dict.add(word);
+            WordList.add(word);
         }
-        DictionaryManagement dm = new DictionaryManagement();
-        for(int i=0;i<t;i++){
-            dm.insertFromCommandline(dict.get(i));
-        }
+    }
 
-        dm.showAllWords();
+    public ArrayList<Word> getWordList() {
+        return WordList;
+    }
+
+    public void insertFromFile() {
 
     }
 }
