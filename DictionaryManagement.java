@@ -9,7 +9,7 @@ public class DictionaryManagement {
 
     public static ArrayList<Word> WordList = new ArrayList<>();
 
-    public void insertFromCommandline() {
+    public static void insertFromCommandline() {
         System.out.print("Enter number of words: ");
         int word_cnt = Integer.parseInt(scanner.nextLine().trim());
         for(int i = 0; i < word_cnt; i++) {
