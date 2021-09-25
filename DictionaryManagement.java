@@ -1,11 +1,14 @@
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Dictionary;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import java.util.Scanner;
 
 public class DictionaryManagement {
     public static Scanner scanner = new Scanner(System.in);
 
-    private static final String DICT_FILE_NAME = "dictionaries.txt";
+    String url = "D:\\IdeaProjects\\Dictionary\\src\\dictionaries.txt";
 
     public static ArrayList<Word> WordList = new ArrayList<>();
 
@@ -26,7 +29,11 @@ public class DictionaryManagement {
         return WordList;
     }
 
-    public void insertFromFile() {
+    public static void insertFromFile() {
+
+    }
+
+    public static void dictionaryLookup() {
 
     }
 }

@@ -14,6 +14,10 @@ public class DictionaryCommandline {
         }
     }
 
+    public static void dictionarySearcher() {
+
+    }
+
     public static void dictionaryBasic() {
         DictionaryManagement.insertFromCommandline();
         showAllWords();
