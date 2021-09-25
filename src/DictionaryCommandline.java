@@ -18,8 +18,14 @@ public class DictionaryCommandline {
 
     }
 
-    public static void dictionaryBasic() {
+    private void dictionaryBasic() {
         DictionaryManagement.insertFromCommandline();
         showAllWords();
+    }
+
+    private void dictionaryAdvanced() {
+        DictionaryManagement.insertFromFile();
+        showAllWords();
+        DictionaryManagement.dictionaryLookup();
     }
 }

@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,7 +27,21 @@ public class DictionaryManagement {
     }
 
     public static void insertFromFile() {
-
+        File myFile = new File("dictionaries.txt");
+        try {
+            Scanner scanner = new Scanner(myFile);
+            while (scanner.hasNextLine()) {
+                Word new_word = new Word();
+                String line = scanner.nextLine();
+                String[] word = line.split("\\t");
+                new_word.setWord_target(word[0]);
+                new_word.setWord_explain(word[1]);
+                WordList.add(new_word);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void dictionaryLookup() {

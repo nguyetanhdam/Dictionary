@@ -1,6 +1,7 @@
+import java.io.IOException;
 import java.util.Scanner;
 
-public class main {
+public class _main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -33,7 +34,7 @@ public class main {
                     break;
             }
             if (exit) break;
-            System.out.println("\n");
+            System.out.println("\n\n\n\n");
             showMenu();
         }
     }
