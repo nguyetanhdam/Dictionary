@@ -11,13 +11,16 @@ public class _main {
         showMenu();
 
         while (true) {
-            choose = scanner.nextInt();
+            choose = Integer.parseInt(scanner.nextLine().trim());
+           // choose = scanner.nextInt();
             switch (choose) {
                 case 1:
                     DictionaryManagement.insertFromFile();
+                    System.out.print("Insert from file successful!");
                     break;
                 case 2:
                     DictionaryManagement.insertFromCommandline();
+                    System.out.print("Insert from Command Line successful!");
                     break;
                 case 3:
                     DictionaryCommandline.showAllWords();
@@ -28,13 +31,22 @@ public class _main {
                 case 5:
                     DictionaryCommandline.dictionarySearcher();
                     break;
+                case 6:
+                    DictionaryManagement.editDictionary();
+                    break;
+                case 7:
+                    DictionaryManagement.removeWordInDictionary();
+                    break;
+                case 8:
+                    DictionaryManagement.dictionaryExportToFile();
+                    break;
                 case 0:
                     exit = true;
                     System.out.println("Goodbye!");
                     break;
             }
             if (exit) break;
-            System.out.println("\n\n\n\n");
+            System.out.println("\n\n");
             showMenu();
         }
     }
@@ -46,7 +58,10 @@ public class _main {
         System.out.println("3. Show all words");
         System.out.println("4. Look up");
         System.out.println("5. Search");
-        System.out.println("0. exit");
+        System.out.println("6. Edit dictionary");
+        System.out.println("7. Remove one word in dictionary");
+        System.out.println("8. Export this dictionary to file");
+        System.out.println("0. Exit");
         System.out.println("=====================");
         System.out.print("Please choose: ");
     }
