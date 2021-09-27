@@ -4,7 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.HashMap;
+import java.util.Map;
 public class DictionaryManagement {
     public static Scanner scanner = new Scanner(System.in);
 
@@ -21,6 +22,10 @@ public class DictionaryManagement {
             word.setWord_explain(scanner.nextLine());
             WordList.add(word);
         }
+    }
+
+    public ArrayList<Word> getWordList() {
+        return WordList;
     }
 
     public static void insertFromFile() {
@@ -53,29 +58,33 @@ public class DictionaryManagement {
         }
     }
 
-    public ArrayList<Word> getWordList() {
-        return WordList;
-    }
-
     public static void dictionaryLookup() {
-        System.out.print("Please enter a word: ");
-        String str = scanner.nextLine();
-
-        // brute force
-        int cnt = 0;
-        for (Word word : WordList) {
-            cnt++;
-            if (str.equals(word.getWord_target())) {
-                System.out.println("The vietnamese of " + str + " is " + word.getWord_explain());
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            System.out.println("DO YOU WANT TO ENTER AN ENGLISH WORD?"+ "  YES  "+"   OR   "+ "  NO  "+" ? ");
+            System.out.print("I CHOOSE: ");
+            String t= sc.nextLine().trim();
+            if(t.equals("NO") || t.equals("No") || t.equals("no")) {
                 break;
             }
-        }
-        if (cnt == WordList.size() + 1) {
-            System.out.println("The word does not exist!");
+            System.out.print("Please enter an English word: ");
+            String s = sc.nextLine().trim();
+            int j = 1;
+            int ok = 0;
+            //Map<String, String> map = new HashMap<String, String>();
+            for(Word value:WordList) {
+                if (value.getWord_target().equals(s)) {
+                    System.out.println("No  | English            | Vietnamese" + '\n');
+                    System.out.print(j + "   ");
+                    value.print();
+                    ok = 1;
+                }
+            }
+            if(ok==0) {
+                System.out.println("This Word is not in dictionary");
+            }
         }
     }
-
-    // brute force
     public static void editDictionary() {
         System.out.print("Please press T to edit the Vietnamese explanation of Word Target or E to edit the English of Word Explain: ");
         String yourChoose = scanner.nextLine();
@@ -134,3 +143,4 @@ public class DictionaryManagement {
         }
     }
 }
+

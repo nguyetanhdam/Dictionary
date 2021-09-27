@@ -11,8 +11,8 @@ public class _main {
         showMenu();
 
         while (true) {
-            choose = Integer.parseInt(scanner.nextLine().trim());
-           // choose = scanner.nextInt();
+            choose = Validation.inputIntLimit(1, 8);
+            // choose = scanner.nextInt();
             switch (choose) {
                 case 1:
                     DictionaryManagement.insertFromFile();
