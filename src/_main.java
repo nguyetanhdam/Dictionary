@@ -11,7 +11,7 @@ public class _main {
         showMenu();
 
         while (true) {
-            choose = Validation.inputIntLimit(1, 8);
+            choose = Validation.inputIntLimit(0, 8);
             // choose = scanner.nextInt();
             switch (choose) {
                 case 1:
