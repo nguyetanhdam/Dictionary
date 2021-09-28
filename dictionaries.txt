@@ -10,3 +10,4 @@ Dope	Thuốc kích thích
 Dog	Con chó
 Eat	Ăn
 Ear 	Tai
+Team	Nhóm 
