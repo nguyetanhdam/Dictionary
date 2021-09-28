@@ -9,4 +9,5 @@ Doctor	Bác sĩ
 Dope	Thuốc kích thích
 Dog	Con chó
 Eat	Ăn
-Ear 	Tai
+Ear	Tai
+Team	Nhóm
