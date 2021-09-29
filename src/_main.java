@@ -12,7 +12,6 @@ public class _main {
 
         while (true) {
             choose = Validation.inputIntLimit(0, 8);
-            // choose = scanner.nextInt();
             switch (choose) {
                 case 1:
                     DictionaryManagement.insertFromFile();

@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DictionaryCommandline {
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void showAllWords() {
         int i = 1;
-        //DictionaryManagement dim = new DictionaryManagement();
-        //ArrayList<Word> WordList = dim.getWordList();
         Dictionary dict= new Dictionary();
         System.out.println("No  | English            | Vietnamese" + '\n');
         for (Word word : dict.getDict()) {
@@ -15,7 +16,8 @@ public class DictionaryCommandline {
     }
 
     public static void dictionarySearcher() {
-
+        String s = scanner.nextLine().trim();
+        System.out.println(Dictionary.BinarySearch(s));
     }
 
     private void dictionaryBasic() {
