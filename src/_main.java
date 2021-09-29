@@ -1,9 +1,4 @@
-import java.io.IOException;
-import java.util.Scanner;
-
 public class _main {
-    public static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         int choose;
         boolean exit = false;

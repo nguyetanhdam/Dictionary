@@ -31,7 +31,7 @@ public class DictionaryManagement {
             while (scanner.hasNextLine()) {
                 Word new_word = new Word();
                 String line = scanner.nextLine();
-                String[] word = line.split("\\t");
+                String[] word = line.split("\\s+");
                 new_word.setWord_target(word[0]);
                 new_word.setWord_explain(word[1]);
                 dict.getDict().add(new_word);
@@ -56,9 +56,16 @@ public class DictionaryManagement {
     }
 
     public static void dictionaryLookup() {
+        System.out.print("Please enter English word: ");
         String s= scanner.nextLine().trim();
         Word word = dict.binaryLookup(0,dict.getDict().size()-1,s);
-        System.out.println(word.getWord_explain());
+        System.out.print("Mean of English Word: ");
+        if(word!=null) {
+            System.out.println(word.getWord_explain());
+        }
+        else {
+            System.out.println("This word does not exist!");
+        }
     }
     public static void editDictionary() {
         System.out.print("Please press T to edit the Vietnamese explanation of Word Target or E to edit the English of Word Explain: ");

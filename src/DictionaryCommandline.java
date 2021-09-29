@@ -9,7 +9,7 @@ public class DictionaryCommandline {
         Dictionary dict= new Dictionary();
         System.out.println("No  | English            | Vietnamese" + '\n');
         for (Word word : dict.getDict()) {
-            System.out.print(i + "   ");
+            System.out.printf("%-4d", i);
             word.print();
             i++;
         }
