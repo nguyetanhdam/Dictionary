@@ -9,10 +9,5 @@ Doctor	Bác sĩ
 Dope	Thuốc kích thích
 Dog	Con chó
 Eat	Ăn
-<<<<<<< HEAD
-Ear 	Tai
-Team	Nhóm 
-=======
 Ear	Tai
 Team	Nhóm
->>>>>>> 6abe2723917e13f031357f5e480b74f312d41b17
