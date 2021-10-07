@@ -1,3 +1,5 @@
+package com.example.test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -54,10 +56,11 @@ public class DictionaryManagement {
     }
 
     public static void dictionaryLookup() {
+        System.out.print("Please enter an English word: ");
         String s = scanner.nextLine().trim();
         Word word = Dictionary.binaryLookup(0,dict.getDict().size()-1,s);
         if (word != null) {
-            System.out.println(word.getWord_explain());
+            System.out.println("Mean of English word: " + word.getWord_explain());
         }
         else {
             System.out.println("The word does not exist!");

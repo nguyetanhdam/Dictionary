@@ -1,3 +1,5 @@
+package com.example.test;
+
 public class _main {
     public static void main(String[] args) {
         int choose;
