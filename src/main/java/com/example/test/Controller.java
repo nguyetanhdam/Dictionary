@@ -2,10 +2,8 @@ package com.example.test;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -27,7 +25,9 @@ public class Controller {
 //        alert.show();
 //    }
     @FXML
-    private TextField wordtarget,wordexplain;
+    private TextField wordtarget;
+    @FXML
+    private TextArea wordexplain;
 
     Dictionary dict= new Dictionary();
    // private  String s;
@@ -65,7 +65,10 @@ public class Controller {
             alert.show();
         }
     }
-    public void show() {
-
+    public void speak() {
+        String s= wordtarget.getText();
+        insertFromFile();
+        Word word = Dictionary.binaryLookup(0,dict.getDict().size()-1,s);
+        Voice voice= new Voice(s);
     }
 }
