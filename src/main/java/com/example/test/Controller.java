@@ -11,6 +11,7 @@ import org.controlsfx.control.action.Action;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Controller {
@@ -70,5 +71,11 @@ public class Controller {
         insertFromFile();
         Word word = Dictionary.binaryLookup(0,dict.getDict().size()-1,s);
         Voice voice= new Voice(s);
+    }
+    public void Translate() throws IOException {
+        String s= wordtarget.getText();
+        //insertFromFile();
+        //Word word = Dictionary.binaryLookup(0,dict.getDict().size()-1,s);
+        wordexplain.setText(Translator.translate("en", "vi", s));
     }
 }

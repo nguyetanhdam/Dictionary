@@ -31,7 +31,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button layoutX="265.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="80.0" text="API " />
+      <Button layoutX="265.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Translate" prefHeight="65.0" prefWidth="80.0" text="API " />
       <Button layoutX="577.0" layoutY="-1.0" mnemonicParsing="false" onAction="#speak" prefHeight="65.0" prefWidth="80.0" text="Speak" />
       <Button layoutX="425.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="80.0" text="Add" />
       <Button layoutX="345.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="80.0" text="Delete" />
