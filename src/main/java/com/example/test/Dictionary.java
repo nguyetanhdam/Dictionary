@@ -13,6 +13,7 @@ public class Dictionary {
         this.dict = dict;
     }
 
+
     public static Word binaryLookup(int start, int end, String eng) {
         if(end<start) {
             return null;
@@ -24,6 +25,10 @@ public class Dictionary {
         if(compare ==0) return word;
         if(compare > 0) return binaryLookup(start, mid-1, eng);
         return binaryLookup(mid+1,end, eng);
+    }
+
+    public void push(Word word) {
+        dict.add(word);
     }
 
     public static String BinarySearch(String search) {

@@ -14,6 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.setTitle("Dictionary Application");
         try {
             Parent root= FXMLLoader.load(getClass().getResource("sample.fxml"));
             Scene scene = new Scene(root);

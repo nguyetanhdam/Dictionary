@@ -1,9 +1,6 @@
 package com.example.test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -31,7 +28,7 @@ public class DictionaryManagement {
             while (scanner.hasNextLine()) {
                 Word new_word = new Word();
                 String line = scanner.nextLine();
-                String[] word = line.split("\\t");
+                String[] word = line.split("\\t+");
                 new_word.setWord_target(word[0]);
                 new_word.setWord_explain(word[1]);
                 dict.getDict().add(new_word);
@@ -40,7 +37,7 @@ public class DictionaryManagement {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        dict.getDict().sort((o1,o2)->(o1.getWord_target().compareTo(o2.getWord_target())));
+       dict.getDict().sort((o1,o2)->(o1.getWord_target().compareTo(o2.getWord_target())));
     }
 
     public static void dictionaryExportToFile() {
@@ -103,6 +100,36 @@ public class DictionaryManagement {
         }
         else {
             System.out.println("The word does not exist!");
+        }
+    }
+
+
+    public static void insertFromFile1(File file, Dictionary dict) throws IOException {
+        FileReader filereader = new FileReader(file);
+        BufferedReader breader = new BufferedReader(filereader);
+        String line;
+        while ((line = breader.readLine()) != null) {
+            try {
+                String[] words = line.split("\\t+");
+                String ans = "";
+                for (int i = 2; i < words.length; i++) {
+                    ans += words[i] + "\n";
+                }
+                dict.push(new Word(words[0], ans));
+            } catch (IndexOutOfBoundsException e) {
+                System.out.print("");
+            }
+        }
+        breader.close();
+        filereader.close();
+    }
+
+    public static void readFile(String fileName, Dictionary dict) {
+        try {
+            File file = new File(fileName);
+            insertFromFile1(file, dict);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
