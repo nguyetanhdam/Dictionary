@@ -32,7 +32,7 @@ public class Dictionary {
     }
 
     public static String BinarySearch(String search) {
-        Dictionary dict= new Dictionary();
+        Dictionary dict = new Dictionary();
         String res = "";
         dict.getDict().removeIf(w -> w.getWord_target().length() < search.length());
         dict.getDict().sort((o1,o2)->(o1.getWord_target().compareTo(o2.getWord_target())));

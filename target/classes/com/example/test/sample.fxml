@@ -7,12 +7,12 @@
 
 <AnchorPane prefHeight="497.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test.Controller">
     <children>
-        <TextArea fx:id="wordexplain" layoutX="199.0" layoutY="76.0" prefHeight="410.0" prefWidth="400.0" />
-        <TextField fx:id="wordtarget" layoutX="8.0" layoutY="78.0" prefHeight="38.0" prefWidth="184.0" promptText="Please enter any word" />
-        <Button layoutX="279.0" layoutY="11.0" mnemonicParsing="false" onAction="#Translate" prefHeight="65.0" prefWidth="80.0" text="API " />
-        <Button layoutX="519.0" layoutY="11.0" mnemonicParsing="false" onAction="#speak" prefHeight="65.0" prefWidth="80.0" text="Speak" />
-        <Button layoutX="439.0" layoutY="11.0" mnemonicParsing="false" onAction="#add" prefHeight="65.0" prefWidth="80.0" text="Add" />
-        <Button layoutX="359.0" layoutY="11.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="80.0" text="Delete" />
-        <Button layoutX="199.0" layoutY="11.0" mnemonicParsing="false" onAction="#enterWord" prefHeight="65.0" prefWidth="80.0" text="Translate" />
+        <TextField fx:id="wordtarget" layoutX="8.0" layoutY="78.0" onAction="#searchWord" prefHeight="38.0" prefWidth="184.0" promptText="Please enter any word" />
+        <TextArea fx:id="wordexplain" editable="false" layoutX="199.0" layoutY="77.0" prefHeight="410.0" prefWidth="400.0" />
+        <Button layoutX="279.0" layoutY="5.0" mnemonicParsing="false" onAction="#Translate" prefHeight="65.0" prefWidth="80.0" text="API " />
+        <Button layoutX="519.0" layoutY="5.0" mnemonicParsing="false" onAction="#speak" prefHeight="65.0" prefWidth="80.0" text="Speak" />
+        <Button layoutX="439.0" layoutY="5.0" mnemonicParsing="false" onAction="#add" prefHeight="65.0" prefWidth="80.0" text="Add" />
+        <Button layoutX="359.0" layoutY="5.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="80.0" text="Delete" />
+        <Button layoutX="199.0" layoutY="5.0" mnemonicParsing="false" onAction="#enterWord" prefHeight="65.0" prefWidth="80.0" text="Translate" />
     </children>
 </AnchorPane>
