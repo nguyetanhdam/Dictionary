@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 import static com.example.test.DictionaryManagement.*;
 
-public class Controller {
+public class Controller implements Initializable{
 
     @FXML
     private TextArea wordtarget;
@@ -37,10 +37,10 @@ public class Controller {
     private ArrayList<Word> array1 = new ArrayList<>();
     
     public void enterWord() {
-        String s= English.getText();
+        String s= English.getText().toLowerCase();
         Alert alert= new Alert(Alert.AlertType.INFORMATION);
        //DictionaryManagement. insertFromFile();
-        DictionaryManagement.readFile("dict.txt", dict);
+       // DictionaryManagement.readFile("dict.txt", dict);
         Word word = Dictionary.binaryLookup(0,dict.getDict().size()-1,s);
         int check=0;
         for (Word value : array1) {
@@ -63,15 +63,16 @@ public class Controller {
     ListView<String> listviewword;
 
     public void k() {
-        DictionaryManagement.readFile("dict.txt", dict);
-
-        ArrayList<String> listsuggest = new ArrayList<>();
+       // DictionaryManagement.readFile("dict.txt", dict);
+        ArrayList<String> listsuggest = DictionaryManagement.getListWordSuggest(English.getText().toLowerCase());
         ObservableList<String> listg = FXCollections.observableArrayList(listsuggest);
-                listviewword.setItems(listg);
+        listviewword.setItems(listg);
     }
 
     public void c(MouseEvent mouseEvent) {
-        wordtarget.setText(listviewword.getSelectionModel().getSelectedItem());
+        Word word = Dictionary.binaryLookup(0,dict.getDict().size()-1,listviewword.getSelectionModel().getSelectedItem());
+        English.setText(listviewword.getSelectionModel().getSelectedItem());
+        Vietnamese.setText(word.getWord_explain());
     }
     public void speak() {
         String s= wordtarget.getText();
@@ -113,7 +114,7 @@ public class Controller {
 
     public void delete() {
         String s = Eng.getText();
-        readFile("dict.txt", dict);
+       // readFile("dict.txt", dict);
         Word word = Dictionary.binaryLookup(0, dict.getDict().size() - 1, s);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if(word==null) {
@@ -127,6 +128,11 @@ public class Controller {
         alert.show();
         //System.out.println("1");
        // System.out.println(array1.get(0).getWord_target());
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        DictionaryManagement.readFile("dict.txt", dict);
     }
 
 //    @Override

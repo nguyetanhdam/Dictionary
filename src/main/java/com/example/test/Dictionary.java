@@ -1,6 +1,7 @@
 package com.example.test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Dictionary {
     public static ArrayList<Word> dict = new ArrayList<>();
@@ -56,4 +57,9 @@ public class Dictionary {
         }
         return arr;
     }
+
+    public static ArrayList<Word> getListWord(){
+        return dict;
+    }
+
 }

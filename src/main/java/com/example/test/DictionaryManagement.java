@@ -1,6 +1,7 @@
 package com.example.test;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -132,5 +133,18 @@ public class DictionaryManagement {
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<String> getListWordSuggest(String s){
+
+        ArrayList<String> res = new ArrayList<>();
+        for(Word word : dict.getListWord()){
+            if(word.getWord_target().startsWith(s)){
+                res.add(word.getWord_target());
+               // System.out.println(word.getWord_target());
+            }
+        }
+        return res;
+    }
+
 }
 
