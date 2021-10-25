@@ -1,5 +1,9 @@
 package com.example.test;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +23,8 @@ public class DictionaryCommandline {
 
     public static void dictionarySearcher() {
         String s = scanner.nextLine().trim();
-        System.out.println(Dictionary.BinarySearch(s));
+        ArrayList<Word> arraylist = Dictionary.BinarySearch(s);
+        arraylist.forEach(word -> System.out.println(word.getWord_target()));
     }
 
     private void dictionaryBasic() {
@@ -32,4 +37,5 @@ public class DictionaryCommandline {
         showAllWords();
         DictionaryManagement.dictionaryLookup();
     }
+
 }

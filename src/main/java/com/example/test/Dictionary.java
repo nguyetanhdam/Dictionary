@@ -13,6 +13,7 @@ public class Dictionary {
         this.dict = dict;
     }
 
+
     public static Word binaryLookup(int start, int end, String eng) {
         if(end<start) {
             return null;
@@ -26,9 +27,16 @@ public class Dictionary {
         return binaryLookup(mid+1,end, eng);
     }
 
-    public static String BinarySearch(String search) {
+    public void pushword(Word word) {
+//        int length = dict.size();
+//        Word check = binaryLookup(0, length - 1, word.getWord_target());
+            dict.add(word);
+       // System.out.println(word.getWord_target());
+    }
+
+    public static ArrayList BinarySearch(String search) {
         Dictionary dict= new Dictionary();
-        String res = "";
+        ArrayList<Word> arr = new ArrayList<>();
         dict.getDict().removeIf(w -> w.getWord_target().length() < search.length());
         dict.getDict().sort((o1,o2)->(o1.getWord_target().compareTo(o2.getWord_target())));
 
@@ -36,7 +44,7 @@ public class Dictionary {
         while (low <= high) {
             int mid = (low + high) / 2;
             if (dict.getDict().get(mid).getWord_target().contains(search)) {
-                res += dict.getDict().get(mid).getWord_target() + '\n';
+                 arr.add (dict.getDict().get(mid));
                 dict.getDict().remove(dict.getDict().get(mid));
             }
             else if (dict.getDict().get(mid).getWord_target().compareTo(search) > 0) {
@@ -46,6 +54,6 @@ public class Dictionary {
                 low = mid + 1;
             }
         }
-        return res;
+        return arr;
     }
 }
